@@ -96,7 +96,7 @@ TEMPLATE = '''
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Leet Precision Game</title>
+    <title>⏱️Count It Down!⏱️</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body { background: #181c20; color: #e0e0e0; font-family: 'Fira Mono', monospace; margin: 0; }
@@ -116,19 +116,65 @@ TEMPLATE = '''
         .timer-bar { background: #00ffe7; height: 100%; border-radius: 8px; transition: width 0.1s; }
         .feedback { font-size: 1.2em; margin: 16px 0; }
         .sysinfo { color: #00ffe7; font-size: 0.95em; margin-bottom: 18px; }
-        @media (max-width: 900px) {
-            .container { flex-direction: column; }
-            .sidebar { border-left: none; border-top: 2px solid #2e3236; }
+        
+          /* NEW: Page container for sticky footer */
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            background: #181c20; 
+            color: #e0e0e0; 
+            font-family: 'Fira Mono', monospace;
+        }
+        .page-wrapper {
+            flex: 1 0 auto;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* UPDATED: Container for main content */
+        .container {
+            display: flex;
+            flex: 1;
+        }
+        
+        /* UPDATED: Footer styles */
+        footer { 
+            flex-shrink: 0;
+            text-align: center; 
+            padding: 20px; 
+            background: #23272b; 
+            border-top: 1px solid #00ffe7;
+            font-family: 'Fira Mono', monospace;
+            font-size: 0.9em;
+        }
+        .copyright {
+            margin: 10px 0; 
+            color: #00ffe7;
+        }
+        .built-by {
+            color: #00bfae;
+            margin-top: 10px;
+            line-height: 1.5;
+        }
+        .thanks {
+            color: #00ffe7;
+            font-style: italic;
+            margin-top: 5px;
+            font-size: 0.9em;
         }
     </style>
 </head>
 <body>
 <div class="container">
     <div class="main">
-        <h1>Count It Down!</h1>
+        <h1>Count It Down! Precision Timer 🕛</h1>
         {% if not session.player %}
             <div class="techy-box">
-                <h2>Register Player</h2>
+                <h2>Player, are you ready? Register here if you are😈</h2>
                 <form method="post" action="{{ url_for('register') }}">
                     <input class="input" type="text" name="player" placeholder="Enter your name" required maxlength="20">
                     <button class="button" type="submit">Register</button>
@@ -228,6 +274,15 @@ TEMPLATE = '''
     </div>
 </div>
 </body>
+<footer>
+    <div class="copyright">
+        &copy; 2025 Count It Down! All Rights Reserved
+    </div>
+    <div class="built-by">
+        Built by: Foxy | Syamil aka CicakBerlari<br>
+        <span class="thanks">Special thanks to: Cursor for inspiration idea</span>
+    </div>
+</footer>
 </html>
 '''
 
@@ -278,17 +333,17 @@ def stop_game():
 
 def get_feedback(difference):
     if difference <= 0.05:
-        return "🎯 PERFECT HIT! You're a timing master! 🎯"
+        return "🎯 PERFECT HIT! You're a timing master!"
     elif difference <= 0.1:
-        return "👍 EXCELLENT! Incredible precision! 👍"
+        return "👍 EXCELLENT! Incredible precision!"
     elif difference <= 0.2:
-        return "👏 GREAT JOB! Very close! 👏"
+        return "👏 GREAT JOB! Very close!"
     elif difference <= 0.3:
-        return "🔔 Good effort! Within 0.3 seconds 🔔"
+        return "🔔 Good effort! Within 0.3 seconds"
     elif difference <= 0.5:
-        return "✨ Not bad! Practice makes perfect ✨"
+        return "✨ Not bad! Practice makes perfect"
     else:
-        return "💤 Missed! Keep trying! 💤"
+        return "💤 Missed! Keep trying!"
 
 @app.route('/clear_result', methods=['POST'])
 def clear_result():
@@ -313,4 +368,4 @@ def settings():
 
 if __name__ == '__main__':
     ensure_leaderboard_file()
-    app.run(debug=True) 
+    app.run(debug=True)
