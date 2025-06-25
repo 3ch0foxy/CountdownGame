@@ -1,3 +1,7 @@
+#This is the original version of the game countdown.
+#This version got levels, Ease,Medium and Hard.
+
+
 import time
 import random
 import sys
