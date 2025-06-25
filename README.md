@@ -1,5 +1,3 @@
-# README
-
 ## Countdown Game! 
 
 There are 2 versions of the game here.
