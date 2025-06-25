@@ -1,3 +1,7 @@
+#The name of the game is "Count It Down"
+#This game will be hosted by browser using Flask. Do download flask first if you do not have it installed in your computer
+#The launching game is the same as the previous version, use "python" an proceed with the path of where you put the source code at then open the browser url provided by flask in your terminal.
+
 from flask import Flask, render_template_string, request, redirect, url_for, session
 import random
 import time
