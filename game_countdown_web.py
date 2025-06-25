@@ -125,7 +125,7 @@ TEMPLATE = '''
 <body>
 <div class="container">
     <div class="main">
-        <h1>Leet Precision Game</h1>
+        <h1>Count It Down!</h1>
         {% if not session.player %}
             <div class="techy-box">
                 <h2>Register Player</h2>
