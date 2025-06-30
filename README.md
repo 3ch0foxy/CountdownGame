@@ -2,7 +2,7 @@
 
 There are 2 versions of the game here.
 
-### First Version - "Countdown Game" (Windows Only) 
+### First Version - "Countdown Game" (Windows Only) [game_countdown.py]
 
 This game is only compatible with Windows OS. It's a countdown game where you need to hit the "Enter" button to stop the timer. Features player name registration and leaderboard.
 
@@ -12,7 +12,7 @@ This game is only compatible with Windows OS. It's a countdown game where you ne
 2. Open your Command Prompt (CMD)  
 3. Run: `python "path\to\your\source_code.py"`
 
-### Second Version - "Count It Down!" (Web Version)
+### Second Version - "Count It Down!" (Web Version) [game_countdown_web.py]
 
 1. Open your terminal and install Flask: `pip install flask`  
 2. After installation, run: `python "path\to\your\source_code.py"`  
